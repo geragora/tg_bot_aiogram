@@ -1,0 +1,56 @@
+2025-02-02 16:14:46,080 - INFO - Start polling
+2025-02-02 16:14:46,470 - INFO - Run polling for bot @greenish_uni_bot id=7640410337 - 'FoodBod'
+2025-02-02 16:14:46,642 - INFO - Получено сообщение: /show_progress
+2025-02-02 16:14:46,672 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-02 16:14:46,674 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-02 16:14:46,695 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-02 16:14:46,696 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-02 16:14:46,918 - INFO - Update id=690357599 is not handled. Duration 279 ms by bot id=7640410337
+2025-02-02 16:14:46,918 - ERROR - Cause exception while process update id=690357599 by bot id=7640410337
+TypeError: Can't instantiate abstract class InputFile with abstract method read
+Traceback (most recent call last):
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/error.py", line 25, in __call__
+    return await handler(event, data)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/middlewares/user_context.py", line 56, in __call__
+    return await handler(event, data)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/fsm/middleware.py", line 42, in __call__
+    return await handler(event, data)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 174, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 146, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 141, in _wrapped
+    return await self._propagate_event(
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/router.py", line 166, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/event/telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+  File "/home/egor/PycharmProjects/Bot/applied_python/aiogram-bot/middlewares.py", line 23, in __call__
+    return await handler(event, data)
+  File "/home/egor/PycharmProjects/Bot/.venv/lib/python3.10/site-packages/aiogram/dispatcher/event/handler.py", line 43, in call
+    return await wrapped()
+  File "/home/egor/PycharmProjects/Bot/applied_python/aiogram-bot/handlers.py", line 678, in show_progress
+    photo = InputFile(f)
+TypeError: Can't instantiate abstract class InputFile with abstract method read
+2025-02-02 16:15:06,622 - INFO - Получено сообщение: /help
+2025-02-02 16:15:07,197 - INFO - Update id=690357600 is handled. Duration 575 ms by bot id=7640410337
+2025-02-02 16:15:16,322 - INFO - Получено сообщение: /profile
+2025-02-02 16:15:16,517 - INFO - Update id=690357601 is handled. Duration 197 ms by bot id=7640410337
+2025-02-02 16:15:55,136 - INFO - Update id=690357602 is not handled. Duration 3 ms by bot id=7640410337
+2025-02-02 16:33:02,867 - WARNING - Received SIGINT signal
+2025-02-02 16:33:02,896 - INFO - Polling stopped for bot @greenish_uni_bot id=7640410337 - 'FoodBod'
+2025-02-02 16:33:02,899 - INFO - Polling stopped

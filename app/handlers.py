@@ -14,7 +14,6 @@ from aiogram.types import Message
 from config import TOKEN
 
 router = Router()
-bot = Bot(token=TOKEN)
 
 
 # Обработчик команды /start
@@ -687,7 +686,7 @@ async def show_progress(message: Message):
 
     # Генерируем график и получаем буфер с графиком
     graph_buf = create_progress_graph(user_id)
-    await bot.send_photo(chat_id=message.chat.id, photo=graph_buf)
+    await message.send_photo(chat_id=message.chat.id, photo=graph_buf)
 
 
 # Функция для подключения обработчиков

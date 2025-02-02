@@ -236,7 +236,7 @@ def calculate_water_and_calories(weight, height, age, activity_level, gender):
 
 # Функция для сохранения данных в базе данных
 def save_profile(user_id, weight, height, age, activity_level, city, gender, calorie_goal, water_intake):
-    conn = sqlite3.connect('user_profiles_backup.db')
+    conn = sqlite3.connect('user_profiles.db')
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS profiles (
@@ -263,7 +263,7 @@ def save_profile(user_id, weight, height, age, activity_level, city, gender, cal
 
 ###############################################################################################################
 def get_profile(user_id):
-    conn = sqlite3.connect('user_profiles_backup.db')
+    conn = sqlite3.connect('user_profiles.db')
     cursor = conn.cursor()
 
     # Выполняем запрос для поиска пользователя по user_id
@@ -280,7 +280,7 @@ def get_profile(user_id):
 
 
 def get_water(user_id):
-    conn = sqlite3.connect('user_profiles_backup.db')
+    conn = sqlite3.connect('user_profiles.db')
     cursor = conn.cursor()
     date = datetime.now().strftime("%Y-%m-%d")  # Текущая дата и время
     # Выполняем запрос для поиска пользователя по user_id
@@ -297,7 +297,7 @@ def get_water(user_id):
 
 
 def update_or_create_user_water(user_id, water_amount):
-    conn = sqlite3.connect('user_profiles_backup.db')
+    conn = sqlite3.connect('user_profiles.db')
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS water (
@@ -360,7 +360,7 @@ async def get_user_profile(message: Message):
 
 
 def update_water_intake(user_id, water_intake):
-    conn = sqlite3.connect('user_profiles_backup.db')
+    conn = sqlite3.connect('user_profiles.db')
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS water (
@@ -423,7 +423,7 @@ food_data = {}
 
 
 def create_db_food():
-    conn = sqlite3.connect("user_profiles_backup.db")
+    conn = sqlite3.connect("user_profiles.db")
     cursor = conn.cursor()
     cursor.execute('''CREATE TABLE IF NOT EXISTS food_log (
                         user_id INTEGER,
@@ -438,7 +438,7 @@ def create_db_food():
 
 # Функция для записи данных в базу
 def log_to_db_food(user_id, product, weight, calories):
-    conn = sqlite3.connect("user_profiles_backup.db")
+    conn = sqlite3.connect("user_profiles.db")
     cursor = conn.cursor()
     date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Текущая дата и время
     cursor.execute("INSERT INTO food_log (user_id, date, product, weight, calories) VALUES (?, ?, ?, ?, ?)",
@@ -451,7 +451,7 @@ def log_to_db_food(user_id, product, weight, calories):
 async def get_daily_calories(message: Message):
     user_id = message.from_user.id
     date = datetime.now().strftime("%Y-%m-%d")
-    conn = sqlite3.connect("user_profiles_backup.db")
+    conn = sqlite3.connect("user_profiles.db")
     cursor = conn.cursor()
     cursor.execute("""
         SELECT SUM(calories) FROM food_log 
@@ -509,7 +509,7 @@ async def log_food(message: Message):
 # Функция для создания базы данных и таблицы для тренировок
 def create_db_workout():
     try:
-        conn = sqlite3.connect("user_profiles_backup.db")
+        conn = sqlite3.connect("user_profiles.db")
         cursor = conn.cursor()
 
         # Создаем таблицу для тренировок
@@ -531,7 +531,7 @@ def create_db_workout():
 # Функция для записи информации о тренировке в базу данных
 def log_to_db_workout(user_id, workout_type, duration, calories_burned, water_needed):
     try:
-        conn = sqlite3.connect("user_profiles_backup.db")
+        conn = sqlite3.connect("user_profiles.db")
         cursor = conn.cursor()
         date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Текущая дата и время
         cursor.execute(
@@ -612,7 +612,7 @@ async def check_progress(message: Message):
 
 
 def get_water_data(user_id):
-    conn = sqlite3.connect("user_profiles_backup.db")
+    conn = sqlite3.connect("user_profiles.db")
     cursor = conn.cursor()
     cursor.execute("""
         SELECT date, water_intake FROM water 
@@ -625,7 +625,7 @@ def get_water_data(user_id):
 
 # Функция для получения данных о потребленных калориях
 def get_food_data(user_id):
-    conn = sqlite3.connect("user_profiles_backup.db")
+    conn = sqlite3.connect("user_profiles.db")
     cursor = conn.cursor()
     cursor.execute("""
         SELECT date, SUM(calories) FROM food_log 
